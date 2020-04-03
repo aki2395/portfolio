@@ -1,21 +1,29 @@
-header {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  height: 80px;
-  width: 100vw;
-
-  .logo {
-    height: 50px;
-    width: 207px;
-    margin: 15px 15px;
-  }
+.wrap {
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  width: 100%;
+  color: #fff;
 }
 
-.wrap {
-  height: 100%;
-  width: 100%;
+.link {
+  display: block;
+}
+
+.tit-wrap {
+  display: flex;
+}
+
+.tit--tertiary {
+  font-size: 14px;
+  padding-left: 16px;
+  margin-top: 8px;
+  opacity: 0.5;
+  cursor: pointer;
+
+  &.is-active {
+    opacity: 1;
+  }
 }
 
 .bg {
@@ -23,6 +31,36 @@ header {
   width: 100vw;
   background: #2CDBB2;
   position: fixed;
+  z-index: -9;
+
+  .img-wrap {
+    position: absolute;
+    z-index: 9;
+
+    &--circle {
+      height: 265px;
+      top: -6%;
+      left: -10%;
+    }
+
+    &--small-circle {
+      height: 102px;
+      top: 26%;
+      right: 10%;
+    }
+
+    &--rhombus {
+      height: 73px;
+      top: 60%;
+      right: 20%;
+    }
+
+    &--diagonal-lines {
+      height: 226px;
+      top: 60%;
+      left: -30%;
+    }
+  }
 
   .line-wave {
     position: absolute;
@@ -41,11 +79,12 @@ header {
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 99;
+  z-index: 999;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
   &__line {
     display: block;
@@ -86,14 +125,15 @@ header {
 .menu {
   position: fixed;
   right: 0;
-  z-index: 9;
+  z-index: 99;
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   transform: translateX(-100vw);
-  background: #2CDBB2;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
 
   &.is-active {
     animation: openMenu 0.4s ease forwards;
@@ -109,6 +149,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #2CDBB2;
   }
 
   &__list {
@@ -122,9 +163,41 @@ header {
     display: flex;
     height: 30px;
     margin-top: 32px;
+    cursor: pointer;
 
     &:first-child {
       margin-top: 0;
+    }
+  }
+}
+
+.header {
+  transition: 0.4s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: auto;
+  width: 100vw;
+
+  .logo {
+    height: 50px;
+    width: 207px;
+    margin: 15px 15px;
+  }
+
+  &.is-active {
+    animation: movedTopPosHeader ease 0.4s forwards;
+
+    .logo {
+      animation: MakeLogoSmaller ease 0.4s forwards;
+    }
+  }
+
+  &.is-disabled {
+    animation: removedPosHeader ease 0.4s forwards;
+
+    .logo {
+      animation: restoreLogo ease 0.4s forwards;
     }
   }
 }
@@ -135,24 +208,99 @@ header {
   position: relative;
 }
 
+.section {
+  height: 100vh;
+  scroll-snap-align: start;
+  padding-top: 60px;
+  position: relative;
+}
+
+.sub-tit {
+  height: 40px;
+  padding-left: 16px;
+}
+
+.work {
+  .inner {
+    display: flex;
+    padding: 0 16px;
+    margin-top: 32px;
+  }
+  .counter {
+    font-size: 12px;
+    display: flex;
+    // position: absolute;
+    // top: 27%;
+    // left: 4%;
+    width: 35px;
+    justify-content: space-between;
+    margin-right: 32px;
+  }
+
+  .list--work {
+    .item {
+      max-width: 204px;
+    }
+  
+    @media screen and (min-width: 321px) {
+      .item {
+        max-height: 264px;
+        max-width: 224px;
+      }
+    }
+  }
+
+  .img-wrap {
+    height: 47vh;
+    width: 70vw;
+    max-height: 224px;
+    max-width: 204px;
+    background: #fff;
+    // position: absolute;
+    // top: 50%;
+    // left: 56%;
+    // transform: translateX(-50%) translateY(-50%);
+  }
+
+  .main-txt {
+    font-size: 14px;
+    margin-top: 16px;
+  }
+
+  .list--skill {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .item {
+      font-size: 12px;
+      margin: 8px 8px 0 0;
+    }
+  }
+}
+
 // keyframes
 @keyframes openMenu {
   0% {
     transform: translateX(100vw);
+    opacity: 0;
   }
 
   100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
 @keyframes closeMenu {
   0% {
     transform: translateX(0);
+    opacity: 1;
   }
 
   100% {
     transform: translateX(100vw);
+    opacity: 0;
   }
 }
 
@@ -212,6 +360,55 @@ header {
 
   100% {
     transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes movedTopPosHeader {
+  0% {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  100% {
+    top: 0;
+    transform: translateY(0);
+  }
+}
+
+@keyframes removedPosHeader {
+  0% {
+    top: 0;
+    transform: translateY(0);
+  }
+
+  100% {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes MakeLogoSmaller {
+  0% {
+    height: 50px;
+    width: 207px;
+  }
+
+  100% {
+    height: 24px;
+    width: 59px;
+    z-index: 9;
+  }
+}
+
+@keyframes restoreLogo {
+  0% {
+    height: 24px;
+    width: 59px;
+  }
+
+  100% {
+    height: 50px;
+    width: 207px;
   }
 }
 // ハンバーガーメニュー isDisabled end
