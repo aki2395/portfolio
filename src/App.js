@@ -31,7 +31,7 @@ function App() {
   let [boolOfMovie, movie] = useState(false);
 
   const setBoolInWeb = () => {
-    web(!boolOfWeb);
+    web(boolOfWeb = true);
     graphic(boolOfGraphic = false);
     photo(boolOfPhoto = false);
     movie(boolOfMovie = false);
@@ -39,7 +39,7 @@ function App() {
 
   const setBoolInGraphic = () => {
     web(boolOfWeb = false);
-    graphic(!boolOfGraphic);
+    graphic(boolOfGraphic = true);
     photo(boolOfPhoto = false);
     movie(boolOfMovie = false);
   }
@@ -47,7 +47,7 @@ function App() {
   const setBoolInPhoto = () => {
     web(boolOfWeb = false);
     graphic(boolOfGraphic = false);
-    photo(!boolOfPhoto);
+    photo(boolOfPhoto = true);
     movie(boolOfMovie = false);
   }
 
@@ -55,7 +55,7 @@ function App() {
     web(boolOfWeb = false);
     graphic(boolOfGraphic = false);
     photo(boolOfPhoto = false);
-    movie(!boolOfMovie);
+    movie(boolOfMovie = true);
   }
 
   return (
