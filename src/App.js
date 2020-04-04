@@ -139,7 +139,7 @@ function App() {
           <div className="counter">
             <p>1</p>-<p>10</p>
           </div>
-          <ul className="list list--work">
+          <ul className={`list list--work${boolOfWeb === true ? ' is-active' : ''}`}>
             <li className="item">
               <div className="img-wrap">
                 <img src="" alt=""/>
@@ -156,7 +156,70 @@ function App() {
                 <li className="item">jQuery</li>
                 <li className="item">React</li>
                 <li className="item">Git</li>
-                <li className="item">WebDesign</li>
+                <li className="item">webDesign</li>
+              </ul>
+            </li>
+          </ul>
+          <ul className={`list list--work${boolOfGraphic === true ? ' is-active' : ''}`}>
+            <li className="item">
+              <div className="img-wrap">
+                <img src="" alt=""/>
+              </div>
+              <p className="main-txt">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+              <ul className="list list--skill">
+                <li className="item">HTML</li>
+                <li className="item">CSS3</li>
+                <li className="item">SASS</li>
+                <li className="item">JavaScript</li>
+                <li className="item">jQuery</li>
+                <li className="item">React</li>
+                <li className="item">Git</li>
+                <li className="item">graphicDesign</li>
+              </ul>
+            </li>
+          </ul>
+          <ul className={`list list--work${boolOfPhoto === true ? ' is-active' : ''}`}>
+            <li className="item">
+              <div className="img-wrap">
+                <img src="" alt=""/>
+              </div>
+              <p className="main-txt">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+              <ul className="list list--skill">
+                <li className="item">HTML</li>
+                <li className="item">CSS3</li>
+                <li className="item">SASS</li>
+                <li className="item">JavaScript</li>
+                <li className="item">jQuery</li>
+                <li className="item">React</li>
+                <li className="item">Git</li>
+                <li className="item">shooting</li>
+              </ul>
+            </li>
+          </ul>
+          <ul className={`list list--work${boolOfMovie === true ? ' is-active' : ''}`}>
+            <li className="item">
+              <div className="img-wrap">
+                <img src="" alt=""/>
+              </div>
+              <p className="main-txt">
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+                サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+              </p>
+              <ul className="list list--skill">
+                <li className="item">HTML</li>
+                <li className="item">CSS3</li>
+                <li className="item">SASS</li>
+                <li className="item">JavaScript</li>
+                <li className="item">jQuery</li>
+                <li className="item">React</li>
+                <li className="item">Git</li>
+                <li className="item">movieEditing</li>
               </ul>
             </li>
           </ul>

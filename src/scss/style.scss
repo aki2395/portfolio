@@ -238,10 +238,20 @@
   }
 
   .list--work {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+      display: block;
+    }
+
     .item {
       max-width: 204px;
     }
-  
+
     @media screen and (min-width: 321px) {
       .item {
         max-height: 264px;
